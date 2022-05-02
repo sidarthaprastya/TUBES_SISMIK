@@ -32,5 +32,6 @@ Referensi:
 $ roslaunch motor_sim_lpf motor_sim_lpf.launch
 ```
 
+- Kebetulan Arduino yang digunakan berada pada port /ttyACM0. Silakan sesuaikan dengan kondisi Anda.
 - Silakan atur rqt_plot terhadap sumbu x dan y yang diinginkan.
 
