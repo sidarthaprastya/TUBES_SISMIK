@@ -1,5 +1,5 @@
-// Nama     : Sidartha Prastya. P
-// NIM      : 13219033
+// Nama     : Sidartha Prastya. P & Kelvin Sutirta
+// NIM      : 13219033 & 13219069
 
 #include "ros/ros.h"
 #include <motor_sim_lpf/pid_motor_arduino.h>
@@ -31,6 +31,7 @@ float buffer[BUFFERLENGTH];
 
 float x;
 float y;
+float curr_position = 0;
 
 int i, j;
 
@@ -90,7 +91,11 @@ int main(int argc, char *argv[])
 
     while(ros::ok()){
         y = filter(x);
-        motor_msg.output = y;
+        // motor_msg.output = y;
+
+        // Add Integrator for count current position
+        curr_position += y;
+        motor_msg.output = curr_position;
 
         pub_motor.publish(motor_msg);
 
