@@ -5,8 +5,8 @@
 //#include <motor_sim_lpf/setpoint.h>
 
 #define KP 1
-#define KI 10
-#define KD 0
+#define KI 4
+#define KD 0.1
 
 #define potentio_pin A0
 

@@ -1,4 +1,2 @@
 float32 output
 
-# Control the setpoint
-float32 setpoint

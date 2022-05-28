@@ -24,6 +24,34 @@ Referensi:
 - http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup
 
 
+## Tahapan Sebelum Menjalankan Program
+- Compile your ros workspace with
+```
+$ catkin_make
+```
+- Dont forget to ros source (in your workspace folder)
+```
+$ source devel/setup.bash
+```
+- Or, if you want to auto source it when opening new terminal
+```
+$ nano .bashrc
+```
+Then add:
+```
+source <PATH to workspace>/devel/setup.bash
+```
+
+- Add ros-lib to /home/Arduino/Libraries
+```
+$ rosrun rosserial_arduino make_libraries.py /home/Arduino/Libraries
+``` 
+- Compile and Upload Arduino Program "pid_lpf.ino"
+
+- Make sure your Arduino in port /dev/ttyACM0
+- If not, please change the port name in roslaunch file (/motor_sim_lpf/launch/motor_sim_lpf.launch)
+
+
 ## Command untuk menjalankan program
 
 > Note: Silakan terlebih dahulu upload file .ino ke Arduino/ESP32 Anda.

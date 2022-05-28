@@ -1,6 +1,6 @@
 <launch>
-    <node pkg="motor_sim_lpf" type="motor_lpf" name="motor_lpf" />
-
+    <!-- <node pkg="motor_sim_lpf" type="motor_lpf" name="motor_lpf" /> -->
+    <node pkg="motor_sim_lpf" type="motor_laplace" name="motor_laplace" />
     <!-- <node pkg="motor_sim_lpf" type="set_node" name="set_node" output="screen"/> -->
 
     <node pkg="rosserial_python" type="serial_node.py" name="serial_node">

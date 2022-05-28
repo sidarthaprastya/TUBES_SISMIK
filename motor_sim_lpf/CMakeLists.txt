@@ -212,6 +212,10 @@ add_executable(motor_lpf src/motor_lpf.cpp)
 target_link_libraries(motor_lpf ${catkin_LIBRARIES})
 add_dependencies(motor_lpf motor_sim_lpf_generate_messages_cpp)
 
+add_executable(motor_laplace src/motor_laplace.cpp)
+target_link_libraries(motor_laplace ${catkin_LIBRARIES})
+add_dependencies(motor_laplace motor_sim_lpf_generate_messages_cpp)
+
 # add_executable(set_node src/set_node.cpp)
 # target_link_libraries(set_node ${catkin_LIBRARIES})
 # add_dependencies(set_node motor_sim_lpf_generate_messages_cpp)

@@ -60,7 +60,7 @@ float filter(float input) {
     float hasil = hasil_fract/pow(2,31);
     // kembalikan hasil pemfilteran
     return hasil;
-}
+}   
 
 
 // motor_sim_lpf::pid_motor_arduino pid_msg;
