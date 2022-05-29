@@ -36,8 +36,9 @@ int main(int argc, char *argv[])
 
     while(ros::ok()){
         y[1] = y[0];
+
+        // INsert to Laplace equation (10/s+10)
         y[0] = 0.0476 * x[0] + 0.0476 * x[1] + 0.9048 * y[1];
-        // motor_msg.output = y;
 
         // Add Integrator for count current position
         curr_position += y[0];
