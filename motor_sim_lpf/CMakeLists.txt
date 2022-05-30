@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  roslib
 )
 
 
@@ -53,7 +54,7 @@ add_message_files(
   FILES
   pid_motor_arduino.msg
   motor.msg
-  setpoint.msg
+  constant.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -108,7 +109,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES motor_sim_lpf
- CATKIN_DEPENDS roscpp rospy message_runtime
+ CATKIN_DEPENDS roscpp rospy message_runtime roslib
 #  DEPENDS system_lib
 )
 
@@ -216,6 +217,6 @@ add_executable(motor_laplace src/motor_laplace.cpp)
 target_link_libraries(motor_laplace ${catkin_LIBRARIES})
 add_dependencies(motor_laplace motor_sim_lpf_generate_messages_cpp)
 
-# add_executable(set_node src/set_node.cpp)
-# target_link_libraries(set_node ${catkin_LIBRARIES})
-# add_dependencies(set_node motor_sim_lpf_generate_messages_cpp)
+add_executable(set_node src/set_node.cpp)
+target_link_libraries(set_node ${catkin_LIBRARIES})
+add_dependencies(set_node motor_sim_lpf_generate_messages_cpp)

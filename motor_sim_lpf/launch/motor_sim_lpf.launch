@@ -1,13 +1,14 @@
 <launch>
     <!-- <node pkg="motor_sim_lpf" type="motor_lpf" name="motor_lpf" /> -->
     <node pkg="motor_sim_lpf" type="motor_laplace" name="motor_laplace" />
-    <!-- <node pkg="motor_sim_lpf" type="set_node" name="set_node" output="screen"/> -->
+    <node pkg="motor_sim_lpf" type="set_node" name="set_node" output="screen" launch-prefix="gnome-terminal --command" />
 
-    <node pkg="rosserial_python" type="serial_node.py" name="serial_node">
+    <node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
         <param name="port" value="/dev/ttyACM0"/>
         <param name="baud" value="115200"/>
     </node>
 
     <node pkg="rqt_plot" type="rqt_plot" output="screen" name="rqt_plot" args="/pid_output/setpoint /motor_output/output"/>
 
+<!-- launch-prefix="gnome-terminal command" -->
 </launch>
