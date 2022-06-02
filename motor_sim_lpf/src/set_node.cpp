@@ -21,6 +21,7 @@ int main(int argc, char *argv[]){
         scanf("%f", &ki);
         printf("Kd: ");
         scanf("%f", &kd);
+        printf("\n");
         con_msg.kp = kp;
         con_msg.ki = ki;
         con_msg.kd = kd;

@@ -19,9 +19,8 @@ float x[2] = {0.0, 0.0};
 float y[2] = {0.0, 0.0};
 float curr_position = 0;
 
-std::string path = ros::package::getPath("motor_sim_lpf");
+std::string path = ros::package::getPath("motor_sim_lpf"); // Find ROS node path
 
-// motor_sim_lpf::pid_motor_arduino pid_msg;
 motor_sim_lpf::motor motor_msg;
 motor_sim_lpf::pid_motor_arduino pid_msg;
 
@@ -42,8 +41,8 @@ int main(int argc, char *argv[])
     ros::Rate loop_rate(100);
 
     ofstream fptr;
+    string path_log = path.append("/src/motor_laplace_log.txt"); 
 
-    string path_log = path.append("/src/motor_laplace_log.txt");
     // Save file in the same directory
     fptr.open(path_log);
 
@@ -53,9 +52,10 @@ int main(int argc, char *argv[])
         // INsert to Laplace equation (10/s+10)
         y[0] = 0.0476 * x[0] + 0.0476 * x[1] + 0.9048 * y[1];
 
-        // Add Integrator for count current position
+        // Add Integrator to count current position
         curr_position += y[0];
-        // fprintf(fptr, "%.2f\n", curr_position);
+        
+        // Create LOG File
         fptr << (float)curr_position << endl;
 
         motor_msg.output = curr_position;
